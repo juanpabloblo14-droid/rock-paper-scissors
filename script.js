@@ -6,18 +6,39 @@ const user = document.getElementById("userChoice");
 const computer = document.getElementById("computerChoice");
 const result = document.getElementById("resultText");
 
+//ARRRAY
+let gameArray = [
+    "rock", "paper", "scissors"
+];
+
 //BUTTON FUNCTIONS
-function playGame(userChoice){
+function playGame(userChoice) {
     console.log(userChoice);
+    let randomIndex = Math.floor(Math.random() * gameArray.length)
+    let computerChoice = gameArray[randomIndex];
+    console.log(computerChoice);
+    if (userChoice === computerChoice) {
+        result.textContent = "draw";
+    }
+    if (
+        (userChoice === "rock" && computerChoice === "scissors") ||
+    (userChoice === "scissors" && computerChoice === "paper") ||
+    (userChoice === "paper" && computerChoice === "rock"))
+    {
+        result.textContent = "win";
+    }
+
 }
 
 //EVENT LISTENER 
-rock.addEventListener("click", function(){
+rock.addEventListener("click", function () {
     playGame("rock");
 })
-scissors.addEventListener("click", function(){
+scissors.addEventListener("click", function () {
     playGame("scissors");
-} )
-paper.addEventListener("click", function(){
-    playGame("paper");
 })
+paper.addEventListener("click", function () {
+    playGame("paper");
+});
+
+
