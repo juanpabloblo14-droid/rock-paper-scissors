@@ -20,15 +20,17 @@ function playGame(userChoice) {
     if (userChoice === computerChoice) {
         result.textContent = "draw";
     }
-    if (
+    else if (
         (userChoice === "rock" && computerChoice === "scissors") ||
     (userChoice === "scissors" && computerChoice === "paper") ||
     (userChoice === "paper" && computerChoice === "rock"))
     {
         result.textContent = "win";
     }
-
-}
+    else{
+        result.textContent = "lose";
+    }
+};
 
 //EVENT LISTENER 
 rock.addEventListener("click", function () {
